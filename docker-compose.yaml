@@ -1,0 +1,12 @@
+version: '3'
+services:
+  postgres:
+    build: ./scripts
+    volumes:
+       - /home/data:/var/lib/postgresql/data
+    command: ["-c", "shared_buffers=512MB", "-c", "max_connections=200"]
+    ports:
+       - "5433:5432"
+    environment:
+       POSTGRES_USER: postgres
+       POSTGRES_PASSWORD: 123456
